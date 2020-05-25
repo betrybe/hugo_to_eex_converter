@@ -1,7 +1,7 @@
-defmodule HugoToEexConverter.Shortcodes.ExtlinkTest do
+defmodule HugoToEExConverter.Shortcodes.ExtlinkTest do
   use ExUnit.Case, async: true
 
-  alias HugoToEexConverter.Shortcodes
+  alias HugoToEExConverter.Shortcodes
 
   describe "convert/1" do
     test "converts path to be relative to `course` content folder" do

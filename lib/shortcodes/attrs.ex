@@ -1,4 +1,4 @@
-defmodule HugoToEexConverter.Shortcodes.Attrs do
+defmodule HugoToEExConverter.Shortcodes.Attrs do
   @regex ~r/(\w+)=(".*?")/
 
   def convert(content) do

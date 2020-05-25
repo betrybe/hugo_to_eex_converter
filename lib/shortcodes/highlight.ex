@@ -1,4 +1,4 @@
-defmodule HugoToEexConverter.Shortcodes.Highlight do
+defmodule HugoToEExConverter.Shortcodes.Highlight do
   @regex ~r/\s*?{{<\s?highlight (\w+)?\s?([^>\s]+)? ?>}}\n?(.+?)\n(?:\s*?{{<\s?\/\s?highlight\s?>}})/s
 
   def convert(file_content) do

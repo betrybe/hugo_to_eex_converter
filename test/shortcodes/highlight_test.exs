@@ -1,7 +1,7 @@
-defmodule HugoToEexConverter.Shortcodes.HighlightTest do
+defmodule HugoToEExConverter.Shortcodes.HighlightTest do
   use ExUnit.Case, async: true
 
-  alias HugoToEexConverter.Shortcodes
+  alias HugoToEExConverter.Shortcodes
 
   describe "convert/1" do
     test "converts to a specific language highlight" do

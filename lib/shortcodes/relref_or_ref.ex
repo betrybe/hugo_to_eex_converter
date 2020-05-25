@@ -1,4 +1,4 @@
-defmodule HugoToEexConverter.Shortcodes.RelrefOrRef do
+defmodule HugoToEExConverter.Shortcodes.RelrefOrRef do
   @content_dir "tmp/content/"
 
   def handle_path(path, file_path) do

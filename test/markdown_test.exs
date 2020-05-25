@@ -1,7 +1,7 @@
-defmodule HugoToEexConverter.MarkdownTest do
+defmodule HugoToEExConverter.MarkdownTest do
   use ExUnit.Case, async: true
 
-  alias HugoToEexConverter.Markdown
+  alias HugoToEExConverter.Markdown
 
   describe "replace_italic_underscore_syntax_to_asterisc/1" do
     test "replace italic underscore sintax to asterisc" do

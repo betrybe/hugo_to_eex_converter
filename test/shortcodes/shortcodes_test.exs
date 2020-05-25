@@ -1,7 +1,7 @@
-defmodule HugoToEexConverter.ShortcodesTest do
+defmodule HugoToEExConverter.ShortcodesTest do
   use ExUnit.Case, async: true
 
-  alias HugoToEexConverter.Shortcodes
+  alias HugoToEExConverter.Shortcodes
 
   @file_path "tmp/content/course/front-end/react/_index.md"
 

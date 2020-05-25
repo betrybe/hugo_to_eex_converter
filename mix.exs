@@ -1,4 +1,4 @@
-defmodule HugoToEexConverter.MixProject do
+defmodule HugoToEExConverter.MixProject do
   use Mix.Project
 
   def project do

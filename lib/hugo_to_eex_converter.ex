@@ -1,5 +1,5 @@
-defmodule HugoToEexConverter do
-  alias HugoToEexConverter.{Markdown, Shortcodes}
+defmodule HugoToEExConverter do
+  alias HugoToEExConverter.{Markdown, Shortcodes}
 
   def content_dir do
     "tmp/content"

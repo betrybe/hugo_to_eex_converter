@@ -1,5 +1,5 @@
-defmodule HugoToEexConverter.Shortcodes.Extlink do
-  alias HugoToEexConverter.Shortcodes
+defmodule HugoToEExConverter.Shortcodes.Extlink do
+  alias HugoToEExConverter.Shortcodes
 
   @regex ~r/(href|text): ?"(.+?)", (href|text): ?"(.+?)",/
 

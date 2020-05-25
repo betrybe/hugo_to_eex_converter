@@ -1,4 +1,4 @@
-defmodule HugoToEexConverter.Shortcodes do
+defmodule HugoToEExConverter.Shortcodes do
   alias __MODULE__
 
   @shortcodes %{

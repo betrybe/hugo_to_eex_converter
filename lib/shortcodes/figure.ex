@@ -1,5 +1,5 @@
-defmodule HugoToEexConverter.Shortcodes.Figure do
-  alias HugoToEexConverter.Shortcodes
+defmodule HugoToEExConverter.Shortcodes.Figure do
+  alias HugoToEExConverter.Shortcodes
 
   def convert(params, file_path) do
     params = Shortcodes.Attrs.convert(params)

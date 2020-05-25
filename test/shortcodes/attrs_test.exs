@@ -1,7 +1,7 @@
-defmodule HugoToEexConverter.Shortcodes.AttrsTest do
+defmodule HugoToEExConverter.Shortcodes.AttrsTest do
   use ExUnit.Case, async: true
 
-  alias HugoToEexConverter.Shortcodes
+  alias HugoToEExConverter.Shortcodes
 
   describe "convert/1" do
     test "converts shortcode attrs syntax" do

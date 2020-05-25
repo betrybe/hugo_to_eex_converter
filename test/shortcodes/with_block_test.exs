@@ -1,7 +1,7 @@
-defmodule HugoToEexConverter.Shortcodes.WithBlockTest do
+defmodule HugoToEExConverter.Shortcodes.WithBlockTest do
   use ExUnit.Case, async: true
 
-  alias HugoToEexConverter.Shortcodes
+  alias HugoToEExConverter.Shortcodes
 
   describe "convert/1" do
     test "converts block shortcodes to eex do..end" do

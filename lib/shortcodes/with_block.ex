@@ -1,5 +1,5 @@
-defmodule HugoToEexConverter.Shortcodes.WithBlock do
-  alias HugoToEexConverter.Shortcodes
+defmodule HugoToEExConverter.Shortcodes.WithBlock do
+  alias HugoToEExConverter.Shortcodes
 
   @regex ~r/{{< ?(.+?) ([^>]+) ?>}}\n(.+?)\n(?:{{< ?\/ ?(.+?) ?>}})/s
 

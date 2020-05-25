@@ -1,4 +1,4 @@
-# HugoToEexConverter
+# HugoToEExConverter
 
 **TODO: Add description**
 
