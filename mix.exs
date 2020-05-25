@@ -1,9 +1,9 @@
-defmodule ContentTranspiler.MixProject do
+defmodule HugoToEexConverter.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :content_transpiler,
+      app: :hugo_to_eex_converter,
       version: "0.1.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
