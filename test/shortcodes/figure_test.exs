@@ -3,7 +3,7 @@ defmodule HugoToEexConverter.Shortcodes.FigureTest do
 
   alias HugoToEexConverter.Shortcodes
 
-  @file_path "../trybe/priv/markdown_templates/content/course/front-end/react/_index.md"
+  @file_path "tmp/content/course/front-end/react/_index.md"
 
   describe "convert/2" do
     test "converts to a figure eex tag and set image to relative to `/course` folder path" do

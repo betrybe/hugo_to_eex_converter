@@ -1,5 +1,5 @@
 defmodule HugoToEexConverter.Shortcodes.RelrefOrRef do
-  @content_dir "../trybe/priv/markdown_templates/content/"
+  @content_dir "tmp/content/"
 
   def handle_path(path, file_path) do
     path = Regex.replace(~r/[\\""]/, path, "")
