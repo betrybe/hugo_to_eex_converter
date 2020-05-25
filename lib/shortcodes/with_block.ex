@@ -11,7 +11,7 @@ defmodule HugoToEexConverter.Shortcodes.WithBlock do
 
   defp do_convert(_, shortcode, params, details) do
     params = Shortcodes.Attrs.convert(params)
-    new_shortcode = HugoToEexConverter.shortcodes() |> Map.get(shortcode)
+    new_shortcode = Shortcodes.shortcodes() |> Map.get(shortcode)
 
     "<%= #{new_shortcode}(%{#{params}}) do %>\n#{details}\n<% end %>"
   end
