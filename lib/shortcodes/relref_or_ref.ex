@@ -1,5 +1,5 @@
 defmodule HugoToEExConverter.Shortcodes.RelrefOrRef do
-  @content_dir "tmp/content/"
+  @content_dir "tmp/converted"
 
   def handle_path(path, file_path) do
     path = Regex.replace(~r/[\\""]/, path, "")
