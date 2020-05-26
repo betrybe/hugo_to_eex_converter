@@ -3,7 +3,7 @@ defmodule HugoToEExConverter.Shortcodes.RelrefOrRefTest do
 
   alias HugoToEExConverter.Shortcodes
 
-  @file_path "tmp/content/course/front-end/react/_index.md"
+  @file_path "tmp/converted/course/front-end/react/_introduction.md"
 
   describe "handle_path/2" do
     test "converts to a path relative to the current file folder" do
