@@ -128,9 +128,9 @@ defmodule HugoToEExConverterTest do
 
     ---
 
-    <%= versioning_your_code() %>
+    <%= versioning_your_code(@conn) %>
 
-    <%= next_button() %>
+    <%= next_button(@conn) %>
     """
   end
 end

@@ -51,7 +51,7 @@ defmodule HugoToEExConverter.Shortcodes do
   defp do_convert(shortcode, "" = _params, _path) do
     new_shortcode = Map.get(@shortcodes, shortcode, shortcode)
 
-    "<%= #{new_shortcode}() %>"
+    "<%= #{new_shortcode}(@conn) %>"
   end
 
   defp do_convert(shortcode, params, _path) do

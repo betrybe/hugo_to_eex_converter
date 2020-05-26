@@ -3,7 +3,7 @@ defmodule HugoToEExConverter.ShortcodesTest do
 
   alias HugoToEExConverter.Shortcodes
 
-  @file_path "tmp/content/course/front-end/react/_index.md"
+  @file_path "tmp/converted/course/front-end/react/_index.md"
 
   describe "convert/2" do
     test "converts all shortcodes to elixir functions" do
@@ -97,9 +97,9 @@ defmodule HugoToEExConverter.ShortcodesTest do
 
     [git](/course/intro/git)
 
-    <%= versioning_your_code() %>
+    <%= versioning_your_code(@conn) %>
 
-    <%= next_button() %>
+    <%= next_button(@conn) %>
 
     <%= whoami(%{name: "Norberto Oliveira Junior (Norba)", role: "Software Developer"}) %>
 

@@ -90,6 +90,6 @@ Salve o ***CSS*** que você criar na plataforma colocando o número do exercíci
 
 ---
 
-<%= versioning_your_code() %>
+<%= versioning_your_code(@conn) %>
 
-<%= next_button() %>
+<%= next_button(@conn) %>
