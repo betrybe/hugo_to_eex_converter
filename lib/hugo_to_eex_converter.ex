@@ -6,7 +6,7 @@ defmodule HugoToEExConverter do
   def convert do
     "tmp/convert/course/**/*.md"
     |> Path.wildcard()
-    |> Enum.each(fn f -> Task.async(fn -> convert(f) end) end)
+    |> Enum.each(&convert/1)
   end
 
   def convert(file_to_convert_path) do
