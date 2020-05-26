@@ -1,36 +1,43 @@
 defmodule HugoToEExConverter do
   alias HugoToEExConverter.{Markdown, Shortcodes}
 
-  def content_dir, do: "course"
 
 
   def convert do
-    "course/**/*.md"
+    "tmp/convert/course/**/*.md"
     |> Path.wildcard()
     |> Enum.each(fn f -> Task.async(fn -> convert(f) end) end)
   end
 
-  def convert(file_path) do
+  def convert(file_to_convert_path) do
     regex = ~r/^(?<frontmatter>(---\n(.*?)---)?)(\n*)(?<content>(.*))/ms
 
     %{
       "frontmatter" => frontmatter,
       "content" => content
-    } = Regex.named_captures(regex, File.read!(file_path))
+    } = Regex.named_captures(regex, File.read!(file_to_convert_path))
 
-    [file_name, _] = String.split(file_path, ~r/.md$/)
-    file_name = Regex.replace(~r/_(index)$/, file_name, "\\g{1}")
+    [new_file_path, _] =
+      file_to_convert_path
+      |> String.replace("/convert/", "/converted/")
+      |> String.split(~r/.md$/)
 
-    create_frontmatter!(file_name, frontmatter)
+    create_frontmatter!(new_file_path, frontmatter)
 
-    File.write!("#{file_name}.html.md", do_convert(content, file_path))
-    File.rm!(file_path)
+    content = do_convert(content, new_file_path)
+
+    with :ok <- File.mkdir_p(Path.dirname("#{new_file_path}.html.md")) do
+      File.write!("#{new_file_path}.html.md", content)
+      # File.rm!(file_to_convert_path)
+    end
   end
 
   def create_frontmatter!(_path, ""), do: nil
 
   def create_frontmatter!(path, content) do
-    File.write!(path <> ".yaml", content)
+    with :ok <- File.mkdir_p(Path.dirname(path <> "yaml")) do
+      File.write!(path <> ".yaml", content)
+    end
   end
 
   defp do_convert("", _), do: ""
