@@ -5,8 +5,3 @@ description: "A Hugo (Go) to EEx (Elixir) converter"
 runs:
   using: "Docker"
   image: "Dockerfile"
-
-inputs:
-  contents_path:
-    description: "Pass a glob expression to be able searching all files, example: 'content/course/**/*.md'"
-    required: true
