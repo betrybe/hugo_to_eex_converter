@@ -7,10 +7,6 @@ runs:
   image: "Dockerfile"
 
 inputs:
-  files:
-    description: "A json object with all files to convert. The key need to be the file path and the key value the file content"
+  contents_path:
+    description: "Pass a glob expression to be able searching all files, example: 'content/course/**/*.md'"
     required: true
-
-outputs:
-  file_paths:
-    description: "An array of file paths that were converted"

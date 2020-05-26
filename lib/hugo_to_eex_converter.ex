@@ -1,8 +1,13 @@
 defmodule HugoToEExConverter do
   alias HugoToEExConverter.{Markdown, Shortcodes}
 
-  def content_dir do
-    "tmp/content"
+  def content_dir, do: "course"
+
+
+  def convert do
+    "course/**/*.md"
+    |> Path.wildcard()
+    |> Enum.each(fn f -> Task.async(fn -> convert(f) end) end)
   end
 
   def convert(file_path) do
