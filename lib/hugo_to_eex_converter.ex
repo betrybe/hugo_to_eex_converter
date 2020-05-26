@@ -28,7 +28,6 @@ defmodule HugoToEExConverter do
 
     with :ok <- File.mkdir_p(Path.dirname("#{new_file_path}.html.md")) do
       File.write!("#{new_file_path}.html.md", content)
-      # File.rm!(file_to_convert_path)
     end
   end
 

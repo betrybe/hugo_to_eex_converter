@@ -2,16 +2,9 @@ defmodule HugoToEExConverterTest do
   use ExUnit.Case, async: true
   # doctest HugoToEExConverter
 
-  @fixture_file_path "test/support/content_fixture.md"
   @hugo_markdown_file_path "test/support/course/module/subject/content.md"
   @eex_markdown_file_path "test/support/course/module/subject/content.html.md"
   @frontmatter_file_path "test/support/course/module/subject/content.yaml"
-
-  setup do
-    file_content = File.read!(@fixture_file_path)
-
-    File.write!(@hugo_markdown_file_path, file_content)
-  end
 
   describe "convert/1" do
     test "converts a hugo (go) template file to an eex (elixir)" do
