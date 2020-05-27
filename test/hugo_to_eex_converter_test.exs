@@ -1,5 +1,6 @@
 defmodule HugoToEExConverterTest do
   use ExUnit.Case, async: true
+
   @converted_dir "test/support/converted"
   @eex_markdown_file_path "test/support/converted/course/module/subject/content.html.md"
   @frontmatter_file_path "test/support/converted/course/module/subject/content.yaml"
