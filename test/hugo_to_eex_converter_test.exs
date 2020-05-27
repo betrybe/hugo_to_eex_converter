@@ -1,14 +1,16 @@
 defmodule HugoToEExConverterTest do
   use ExUnit.Case, async: true
-  # doctest HugoToEExConverter
+  @converted_dir "test/support/converted"
+  @eex_markdown_file_path "test/support/converted/course/module/subject/content.html.md"
+  @frontmatter_file_path "test/support/converted/course/module/subject/content.yaml"
 
-  @hugo_markdown_file_path "test/support/course/module/subject/content.md"
-  @eex_markdown_file_path "test/support/course/module/subject/content.html.md"
-  @frontmatter_file_path "test/support/course/module/subject/content.yaml"
+  setup do
+    on_exit(fn -> File.rm_rf(@converted_dir) end)
+  end
 
   describe "convert/1" do
-    test "converts a hugo (go) template file to an eex (elixir)" do
-      HugoToEExConverter.convert(@hugo_markdown_file_path)
+    test "converts hugo (go) templates files to eex (elixir)" do
+      HugoToEExConverter.convert("test/support/convert/content/**/*.md")
 
       assert File.read!(@frontmatter_file_path) == expected_frontmatter()
       assert File.read!(@eex_markdown_file_path) == expected_eex_markdown()
@@ -45,7 +47,7 @@ defmodule HugoToEExConverterTest do
 
     <%= figure(%{src: "/course/module/images/css_flexbox_axes.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Axes", width: "600px", height: "auto", alt: "CSS Flexbox axes description"}) %>
 
-    [Turma 3 - Início jan/2020](/test/support/course/module/subject/sd-cohort-3)
+    [Turma 3 - Início jan/2020](/course/module/subject/sd-cohort-3)
 
     [Turma 5 - Início jan/2020](#sd-cohort-5)
 

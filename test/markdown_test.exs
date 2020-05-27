@@ -22,4 +22,43 @@ defmodule HugoToEExConverter.MarkdownTest do
       assert content == ~S|<%= figure(%{src: "https:\/\/media.giphy.com/media/giphy.gif"}) %>|
     end
   end
+
+  describe "escape_eex_tags_between_backticks/1" do
+    test "escape eex-like tags between backticks" do
+      content =
+        ~S|...com a diferença que agora existem as tags `<%`, `<%=` e `%>`.|
+        |> Markdown.escape_eex_tags_between_backticks()
+
+      assert content == ~S|...com a diferença que agora existem as tags `<%%`, `<%%=` e `%>`.|
+    end
+
+    test "does not escape eex-like tags which aren't between backticks" do
+      content =
+        """
+        {{< highlight html >}}
+        <ul>
+          <% authors.forEach((author) => { %>
+            <li><%= author.name %></li>
+          <% }) %>
+        </ul>
+        {{< /highlight >}}
+
+        ..com a diferença que agora existem as tags `<%`, `<%=` e `%>`.
+        """
+        |> Markdown.escape_eex_tags_between_backticks()
+
+      assert content ==
+               """
+               {{< highlight html >}}
+               <ul>
+                 <% authors.forEach((author) => { %>
+                   <li><%= author.name %></li>
+                 <% }) %>
+               </ul>
+               {{< /highlight >}}
+
+               ..com a diferença que agora existem as tags `<%%`, `<%%=` e `%>`.
+               """
+    end
+  end
 end

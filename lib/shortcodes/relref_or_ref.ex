@@ -1,22 +1,22 @@
 defmodule HugoToEExConverter.Shortcodes.RelrefOrRef do
-  @content_dir "tmp/converted"
+  def handle_path(to, file_path) do
+    to = Regex.replace(~r/[\\""]/, to, "")
 
-  def handle_path(path, file_path) do
-    path = Regex.replace(~r/[\\""]/, path, "")
-
-    do_handle_path(path, file_path)
+    do_handle_path(to, file_path)
   end
 
-  def do_handle_path("/" <> path, _), do: "/course/#{path}"
+  def do_handle_path("/" <> to, _), do: "/course/#{to}"
 
   def do_handle_path("#" <> _ = anchor, _), do: anchor
 
-  def do_handle_path(path, file_path) do
+  def do_handle_path(to, file_path) do
+    content_dir = String.split(file_path, "/course/") |> List.first()
+
     relative_path =
       file_path
       |> Path.dirname()
-      |> Path.relative_to(@content_dir)
+      |> Path.relative_to(content_dir)
 
-    "/#{relative_path}/#{path}"
+    "/#{relative_path}/#{to}"
   end
 end

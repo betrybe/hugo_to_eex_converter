@@ -1,51 +1,54 @@
 defmodule HugoToEExConverter do
   alias HugoToEExConverter.{Markdown, Shortcodes}
 
-
-
-  def convert do
-    "tmp/convert/course/**/*.md"
+  def convert(glob \\ "tmp/convert/content/**/*.md") do
+    glob
     |> Path.wildcard()
-    |> Enum.map(fn f -> Task.async(fn -> convert(f) end) end)
-    |> Task.yield_many()
+    |> Enum.each(&do_convert/1)
   end
 
-  def convert(file_to_convert_path) do
-    regex = ~r/^(?<frontmatter>(---\n(.*?)---)?)(\n*)(?<content>(.*))/ms
+  def do_convert(file_path) do
+    [info, content] = split_frontmatter_and_content(file_path)
+    new_file_path = set_new_file_path(file_path)
 
-    %{
-      "frontmatter" => frontmatter,
-      "content" => content
-    } = Regex.named_captures(regex, File.read!(file_to_convert_path))
+    content = do_convert(new_file_path, content)
 
-    [new_file_path, _] =
-      file_to_convert_path
-      |> String.replace("/convert/", "/converted/")
-      |> String.split(~r/.md$/)
-
-    create_frontmatter!(new_file_path, frontmatter)
-
-    content = do_convert(content, new_file_path)
-
-    with :ok <- File.mkdir_p(Path.dirname("#{new_file_path}.html.md")) do
-      File.write!("#{new_file_path}.html.md", content)
-    end
-  end
-
-  def create_frontmatter!(_path, ""), do: nil
-
-  def create_frontmatter!(path, content) do
-    with :ok <- File.mkdir_p(Path.dirname(path <> "yaml")) do
-      File.write!(path <> ".yaml", content)
-    end
+    create_file!(".yaml", new_file_path, info)
+    create_file!(".html.md", new_file_path, content)
   end
 
   defp do_convert("", _), do: ""
 
-  defp do_convert(content, path) do
+  defp do_convert(path, content) do
     content
     |> Shortcodes.convert(path)
     |> Markdown.escape_forward_slashs_after_http_as_param()
     |> Markdown.replace_italic_underscore_syntax_to_asterisc()
+  end
+
+  defp split_frontmatter_and_content(file_path) do
+    regex = ~r/^(?<frontmatter>(---\n(.*?)---)?)(\n*)(?<content>(.*))/ms
+
+    %{"frontmatter" => f, "content" => c} = Regex.named_captures(regex, File.read!(file_path))
+
+    [f, c]
+  end
+
+  defp set_new_file_path(file_path) do
+    file_path
+    |> String.replace("/convert/content/", "/converted/course/")
+    |> String.split(~r/.md$/)
+    |> List.first()
+  end
+
+  defp create_file!(_file_path, "", _), do: nil
+
+  defp create_file!(extension, file_path, content) do
+    file_path = file_path <> extension
+    file_path_dir = Path.dirname(file_path)
+
+    with :ok <- File.mkdir_p(file_path_dir) do
+      File.write!(file_path, content)
+    end
   end
 end

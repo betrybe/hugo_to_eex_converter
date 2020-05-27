@@ -6,4 +6,8 @@ defmodule HugoToEExConverter.Markdown do
   def escape_forward_slashs_after_http_as_param(content) do
     Regex.replace(~r/(: ?"http[s|]:)\/\/(.+?")/s, content, "\\g{1}\\/\\/\\g{2}")
   end
+
+  def escape_eex_tags_between_backticks(content) do
+    Regex.replace(~r/`(<%)(=)?`/s, content, "`\\g{1}%\\g{2}`")
+  end
 end

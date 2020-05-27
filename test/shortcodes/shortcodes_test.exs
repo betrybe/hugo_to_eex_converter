@@ -3,7 +3,7 @@ defmodule HugoToEExConverter.ShortcodesTest do
 
   alias HugoToEExConverter.Shortcodes
 
-  @file_path "tmp/converted/course/front-end/react/_index.md"
+  @file_path "test/support/converted/course/module/subject/content.md"
 
   describe "convert/2" do
     test "converts all shortcodes to elixir functions" do
@@ -63,9 +63,9 @@ defmodule HugoToEExConverter.ShortcodesTest do
     """
     <%= figure(%{src: "https:\/\/media.giphy.com/media/MTdHOLBVYpVOLY4gRN/giphy.gif", caption: "O que o banco pensa quando você diz `JOIN`", class: "text-center rounded mx-auto d-block", width: "588px", height: "auto"}) do %>
 
-    <%= figure(%{src: "/course/front-end/images/css_flexbox_axes.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Axes", width: "600px", height: "auto", alt: "CSS Flexbox axes description"}) %>
+    <%= figure(%{src: "/course/module/images/css_flexbox_axes.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Axes", width: "600px", height: "auto", alt: "CSS Flexbox axes description"}) %>
 
-    <%= figure(%{src: "/course/front-end/react/images/css_flexbox_single_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Single Line", width: "600px", height: "auto"}) %>
+    <%= figure(%{src: "/course/module/subject/images/css_flexbox_single_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Single Line", width: "600px", height: "auto"}) %>
 
     ```language-css
     .flex-container {
@@ -83,7 +83,7 @@ defmodule HugoToEExConverter.ShortcodesTest do
     ```
     {: .line-numbers}
 
-    [Turma 3 - Início jan/2020](/course/front-end/react/sd-cohort-3)
+    [Turma 3 - Início jan/2020](/course/module/subject/sd-cohort-3)
 
     [Turma 5 - Início jan/2020](#sd-cohort-5)
 
