@@ -4,3 +4,4 @@ COPY . .
 
 CMD ["mix", "compile"]
 CMD ["mix", "hugo_to_eex.convert"]
+CMD ["mix", "hugo_to_eex.copy_images"]
