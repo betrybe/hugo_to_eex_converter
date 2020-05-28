@@ -1,4 +1,8 @@
 defmodule HugoToEExConverter.Markdown do
+  def replace_tag_id_definition(content) do
+    Regex.replace(~r/\s?{\s?#(\w+)\s?}/, content, ~s|\n{: id="\\g{1}" }|)
+  end
+
   def replace_italic_underscore_syntax_to_asterisc(content) do
     Regex.replace(~r/\s_([\w-]+)_([\s\.!?])?/u, content, " *\\g{1}*\\g{2}")
   end

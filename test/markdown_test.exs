@@ -3,6 +3,20 @@ defmodule HugoToEExConverter.MarkdownTest do
 
   alias HugoToEExConverter.Markdown
 
+  describe "replace_tag_id_definition/1" do
+    test "replace definition of tag id" do
+      content =
+        "### Você será capaz de: {#capabilities}"
+        |> Markdown.replace_tag_id_definition()
+
+      assert content ==
+               """
+               ### Você será capaz de:
+               {: id="capabilities" }\
+               """
+    end
+  end
+
   describe "replace_italic_underscore_syntax_to_asterisc/1" do
     test "replace italic underscore sintax to asterisc" do
       content =
