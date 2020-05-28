@@ -7,14 +7,14 @@ defmodule HugoToEExConverter do
     |> Enum.each(&do_convert/1)
   end
 
-  def do_convert(file_path) do
+  defp do_convert(file_path) do
     [info, content] = split_frontmatter_and_content(file_path)
     new_file_path = set_new_file_path(file_path)
 
     content = do_convert(new_file_path, content)
 
-    create_file!(".yaml", new_file_path, info)
-    create_file!(".html.md", new_file_path, content)
+    create_file!(new_file_path, ".yaml", info)
+    create_file!(new_file_path, ".html.md", content)
   end
 
   defp do_convert("", _), do: ""
@@ -41,9 +41,9 @@ defmodule HugoToEExConverter do
     |> List.first()
   end
 
-  defp create_file!(_file_path, "", _), do: nil
+  defp create_file!(_, ".yaml", ""), do: nil
 
-  defp create_file!(extension, file_path, content) do
+  defp create_file!(file_path, extension, content) do
     file_path = file_path <> extension
     file_path_dir = Path.dirname(file_path)
 
