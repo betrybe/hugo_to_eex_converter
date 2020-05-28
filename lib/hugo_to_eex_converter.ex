@@ -1,7 +1,7 @@
 defmodule HugoToEExConverter do
   alias HugoToEExConverter.{Markdown, Shortcodes}
 
-  def convert(glob \\ "tmp/convert/content/**/*.md") do
+  def convert(glob \\ "/Users/norbajunior/tmp/convert/content/**/*.md") do
     glob
     |> Path.wildcard()
     |> Enum.each(&do_convert/1)
@@ -22,6 +22,7 @@ defmodule HugoToEExConverter do
   defp do_convert(path, content) do
     content
     |> Shortcodes.convert(path)
+    |> Markdown.replace_tag_id_definition()
     |> Markdown.escape_forward_slashs_after_http_as_param()
     |> Markdown.replace_italic_underscore_syntax_to_asterisc()
   end
