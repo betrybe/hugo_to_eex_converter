@@ -23,6 +23,7 @@ defmodule HugoToEExConverter do
     content
     |> Shortcodes.convert(path)
     |> Markdown.replace_tag_id_definition()
+    |> Markdown.escape_eex_tags_between_backticks()
     |> Markdown.escape_forward_slashs_after_http_as_param()
     |> Markdown.replace_italic_underscore_syntax_to_asterisc()
   end
