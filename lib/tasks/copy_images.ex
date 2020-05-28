@@ -12,6 +12,6 @@ defmodule Mix.Tasks.HugoToEex.CopyImages do
     ```
   """
   def run(_args) do
-    HugoToEExConverter.CopyImages.run()
+    HugoToEExConverter.Images.copy()
   end
 end
