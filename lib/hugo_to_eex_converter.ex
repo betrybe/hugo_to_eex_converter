@@ -6,7 +6,8 @@ defmodule HugoToEExConverter do
   def convert(glob \\ @glob) do
     glob
     |> Path.wildcard()
-    |> Enum.each(&do_convert/1)
+    |> Enum.map(fn f -> Task.async(fn -> do_convert(f) end) end)
+    |> Task.yield_many(:infinity)
   end
 
   defp do_convert(file_path) do
