@@ -1,7 +1,9 @@
 defmodule HugoToEExConverter do
   alias HugoToEExConverter.{Markdown, Shortcodes}
 
-  def convert(glob \\ "/Users/norbajunior/tmp/convert/content/**/*.md") do
+  @glob ~s|#{System.get_env("HOME")}/tmp/convert/**/*.md|
+
+  def convert(glob \\ @glob) do
     glob
     |> Path.wildcard()
     |> Enum.each(&do_convert/1)
