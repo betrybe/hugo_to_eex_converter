@@ -42,7 +42,7 @@ defmodule HugoToEExConverter.Shortcodes do
   end
 
   defp do_convert(shortcode, "id=" <> id, _path)
-       when shortcode == "yt" or shortcode == "ytd" or shortcode == "vm" do
+       when shortcode == "yt" or shortcode == "ytp" or shortcode == "vm" do
     new_shortcode = Map.get(@shortcodes, shortcode, shortcode)
 
     "<%= #{new_shortcode} #{id} %>"
