@@ -1,10 +1,10 @@
 defmodule HugoToEExConverter do
   alias HugoToEExConverter.{Markdown, Shortcodes}
 
-  @glob ~s|#{System.get_env("INPUT_STORAGEPATH")}/content/**/*.md|
+  @source System.get_env("INPUT_STORAGEPATH")
 
-  def convert(glob \\ @glob) do
-    glob
+  def convert(source \\ @source) do
+    "#{source}/content/**/*.md"
     |> Path.wildcard()
     |> Enum.map(fn f -> Task.async(fn -> do_convert(f) end) end)
     |> Task.yield_many(:infinity)
