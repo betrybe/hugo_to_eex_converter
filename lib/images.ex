@@ -1,10 +1,10 @@
 defmodule HugoToEExConverter.Images do
-  @glob ~s|#{System.get_env("INPUT_STORAGEPATH")}/content/**/*.{png,jpeg,jpg,gif,svg}|
+  @source System.get_env("INPUT_STORAGEPATH")
 
-  def copy(glob \\ @glob) do
-    glob
+  def copy(source \\ @source) do
+    "#{source}/content/**/*.{png,jpeg,jpg,gif,svg}"
     |> Path.wildcard()
-    |> Enum.map(&set_new_img_path/1)
+    |> Stream.map(&set_new_img_path/1)
     |> Enum.each(&do_copy/1)
   end
 
