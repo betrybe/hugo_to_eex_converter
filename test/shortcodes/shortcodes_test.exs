@@ -41,7 +41,7 @@ defmodule HugoToEExConverter.ShortcodesTest do
 
     {{< vm id="22PTowIiZUA" >}}
 
-    {{< ytd id="22PTowIiZUA" >}}
+    {{< ytp id="22PTowIiZUA" >}}
 
     {{< extlink text="aqui" href="https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_flex-direction_column" >}}
 
@@ -91,7 +91,7 @@ defmodule HugoToEExConverter.ShortcodesTest do
 
     <%= vimeo "22PTowIiZUA" %>
 
-    <%= ytd "22PTowIiZUA" %>
+    <%= youtube_playlist "22PTowIiZUA" %>
 
     [aqui](https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_flex-direction_column) {: .external-link target="_blank" rel="noreferrer noopener" }
 

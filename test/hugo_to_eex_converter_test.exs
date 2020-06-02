@@ -11,7 +11,7 @@ defmodule HugoToEExConverterTest do
 
   describe "convert/1" do
     test "converts hugo (go) templates files to eex (elixir)" do
-      HugoToEExConverter.convert("test/support/convert/content/**/*.md")
+      HugoToEExConverter.convert("test/support/convert")
 
       assert File.read!(@frontmatter_file_path) == expected_frontmatter()
       assert File.read!(@eex_markdown_file_path) == expected_eex_markdown()

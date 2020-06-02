@@ -11,7 +11,7 @@ defmodule HugoToEExConverter.ImagesTest do
 
   describe "copy/1" do
     test "copies images from a folder to another" do
-      Images.copy("test/support/convert/**/*.{png,jpeg,jpg,gif,svg}")
+      Images.copy("test/support/convert")
 
       assert File.exists?(@img_path)
     end
