@@ -1,5 +1,7 @@
 FROM elixir:1.10.3
 
-COPY . .
+RUN mkdir /app
 
-ENTRYPOINT ["/entrypoint.sh"]
+COPY . /app
+
+ENTRYPOINT ["/app/entrypoint.sh"]
