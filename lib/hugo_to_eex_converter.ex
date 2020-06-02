@@ -1,7 +1,7 @@
 defmodule HugoToEExConverter do
   alias HugoToEExConverter.{Markdown, Shortcodes}
 
-  @glob ~s|#{System.get_env("HOME")}/tmp/convert/**/*.md|
+  @glob ~s|#{System.get_env("STORAGE_PATH")}/tmp/convert/**/*.md|
 
   def convert(glob \\ @glob) do
     glob

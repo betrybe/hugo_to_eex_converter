@@ -2,6 +2,11 @@ name: "Content converter"
 
 description: "A Hugo (Go) to EEx (Elixir) converter"
 
+inputs:
+  storagePath:
+    description: 'Local path to get and convert files'
+    required: true
+
 runs:
   using: "Docker"
   image: "Dockerfile"

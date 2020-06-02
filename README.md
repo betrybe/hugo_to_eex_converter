@@ -20,4 +20,6 @@ inside `~/tmp/converted`
 steps:
   - name: Convert Hugo templates to EEx
     uses: betrybe/hugo_to_eex_converter@hugo-to-eex-converter
+    with:
+      storagePath: ${{ github.workspace/tmp }}
 ```

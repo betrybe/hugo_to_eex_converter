@@ -1,5 +1,5 @@
 defmodule HugoToEExConverter.Images do
-  @glob ~s|#{System.get_env("HOME")}/tmp/**/*.{png,jpeg,jpg,gif,svg}|
+  @glob ~s|#{System.get_env("STORAGE_PATH")}/tmp/**/*.{png,jpeg,jpg,gif,svg}|
 
   def copy(glob \\ @glob) do
     glob
