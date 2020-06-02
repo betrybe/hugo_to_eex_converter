@@ -11,7 +11,7 @@ defmodule Mix.Tasks.HugoToEex.CopyImages do
     mix hugo_to_eex.copy_images
     ```
 
-    You also can pass as argument the source path where the files are
+    You  can also pass as argument the source path where the files are
 
     ```
     mix hugo_to_eex.copy_images --source tmp/convert
