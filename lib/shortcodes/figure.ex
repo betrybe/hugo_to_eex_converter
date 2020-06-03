@@ -2,28 +2,37 @@ defmodule HugoToEExConverter.Shortcodes.Figure do
   alias HugoToEExConverter.Shortcodes
 
   def convert(params, file_path) do
-    params = Shortcodes.Attrs.convert(params)
+    src = extract_src(params)
 
-    src = ~r/src: "(.+?)"/ |> Regex.run(params) |> List.last()
+    params =
+      params
+      |> Shortcodes.Attrs.convert()
+      |> handle_src(file_path, src)
+      |> String.replace(~r/(`)/, "\\\\\\g{1}")
 
-    if src =~ ~r/http.+?/ do
-      params = Regex.replace(~r/(`)/, params, "\\\\\\g{1}")
+    "<%= figure(%{#{params}}) %>"
+  end
 
-      "<%= figure(%{#{params}}) %>"
-    else
-      dir = Path.dirname(file_path)
+  defp extract_src(params) do
+    ~r/src="(.+?)"/
+    |> Regex.run(params)
+    |> List.last()
+  end
 
-      relative_path =
-        dir
-        |> Path.join(src)
-        |> Path.expand()
-        |> String.split("/course")
-        |> List.last()
+  defp handle_src(params, _file_path, "http" <> _path), do: params
 
-      params = Regex.replace(~r/(`)/, params, "\\\\\\g{1}")
-      params = Regex.replace(~r/(src: ".+?")/, params, "src: \"/course#{relative_path}\"")
+  defp handle_src(params, file_path, src) do
+    path = file_path |> resolve_src_path(src)
 
-      "<%= figure(%{#{params}}) %>"
-    end
+    String.replace(params, ~r/(src: ".+?")/, "src: \"/course#{path}\"")
+  end
+
+  defp resolve_src_path(file_path, src) do
+    file_path
+    |> Path.dirname()
+    |> Path.join(src)
+    |> Path.expand()
+    |> String.split("/course")
+    |> List.last()
   end
 end
