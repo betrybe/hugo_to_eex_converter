@@ -12,8 +12,12 @@ defmodule HugoToEExConverter.Images do
     content = File.read!(img_path)
     dir = Path.dirname(new_img_path)
 
-    with :ok <- File.mkdir_p(dir) do
-      File.write!(new_img_path, content)
+    with :ok <- File.mkdir_p(dir),
+         :ok <- File.write(new_img_path, content) do
+      IO.puts("Copied image: #{new_img_path}")
+    else
+      {:error, reason} ->
+        IO.puts("Error copying file: #{new_img_path}. Reason: #{reason}")
     end
   end
 

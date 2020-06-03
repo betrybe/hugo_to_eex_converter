@@ -51,10 +51,10 @@ defmodule HugoToEExConverter do
 
     with :ok <- File.mkdir_p(file_path_dir),
          :ok <- File.write(file_path, content) do
-      IO.inspect("Created file #{file_path}#{extension}")
+      IO.puts("Created file #{file_path}")
     else
       {:error, reason} ->
-        IO.inspect("Error creating file: #{file_path}#{extension}. Reason: #{reason}")
+        IO.puts("Error creating file: #{file_path}. Reason: #{reason}")
     end
   end
 end
