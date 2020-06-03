@@ -54,7 +54,7 @@ defmodule HugoToEExConverter do
       IO.inspect("Created file #{file_path}#{extension}")
     else
       {:error, reason} ->
-        IO.inspect("Error creating file: #{file_path}.#{extension}. Reason: #{reason}")
+        IO.inspect("Error creating file: #{file_path}#{extension}. Reason: #{reason}")
     end
   end
 end
