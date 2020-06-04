@@ -1,20 +1,25 @@
-# HugoToEexConverter
+# HugoToEExConverter
 
-**TODO: Add description**
+A Hugo (Go) to EEx (Elixir) converter
 
-## Installation
+---
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `hugo_to_eex_converter` to your list of dependencies in `mix.exs`:
+### Converting files
 
-```elixir
-def deps do
-  [
-    {:hugo_to_eex_converter, "~> 0.1.0"}
-  ]
-end
+`mix hugo_to_eex.converter` will get `*.md` files inside `~/tmp` folder by default, convert
+them and store inside `~/tmp/converted`
+
+### Copying images
+
+`mix hugo_to_eex.copy_images` will get all images inside `~/tmp` folder by default and store
+inside `~/tmp/converted`
+
+## Use as an github action
+
+```yaml
+steps:
+  - name: Convert Hugo templates to EEx
+    uses: betrybe/hugo_to_eex_converter@master
+    with:
+      storagePath: ${{ github.workspace }}/tmp
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/hugo_to_eex_converter](https://hexdocs.pm/hugo_to_eex_converter).
