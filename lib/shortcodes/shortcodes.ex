@@ -29,8 +29,8 @@ defmodule HugoToEExConverter.Shortcodes do
     Regex.replace(~r/\s?,\s?(}\)|\s\s?%>)/, content, "\\g{1}")
   end
 
-  defp do_convert(shortcode, param, file_path) when shortcode in ~w(relref ref) do
-    Shortcodes.RelrefOrRef.handle_path(param, file_path)
+  defp do_convert(shortcode, param, _) when shortcode in ~w(relref ref) do
+    Shortcodes.RelrefOrRef.handle_path(param)
   end
 
   defp do_convert("extlink", params, _) do

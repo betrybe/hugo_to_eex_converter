@@ -2,8 +2,8 @@ defmodule HugoToEExConverterTest do
   use ExUnit.Case, async: true
 
   @converted_dir "test/support/converted"
-  @eex_markdown_file_path "test/support/converted/course/module/subject/content.html.md"
-  @frontmatter_file_path "test/support/converted/course/module/subject/content.yaml"
+  @eex_markdown_file_path "test/support/converted/content/module/subject/content.html.md"
+  @frontmatter_file_path "test/support/converted/content/module/subject/content.yaml"
 
   setup do
     on_exit(fn -> File.rm_rf(@converted_dir) end)
@@ -34,7 +34,7 @@ defmodule HugoToEExConverterTest do
     ~S"""
     <%= figure(%{src: "https:\/\/media.giphy.com/media/MTdHOLBVYpVOLY4gRN/giphy.gif", caption: "O que o banco pensa quando você diz \`JOIN\`", class: "text-center rounded mx-auto d-block", width: "588px", height: "auto"}) %>
 
-    Recapitulando o que aprendemos no módulo sobre [git](/course/intro/git), ao versionar nossos projetos, nós os associamos a repositórios remotos (_remotes_). Por padrão, adicionamos um *remote* chamado **origem**.
+    Recapitulando o que aprendemos no módulo sobre [git](/intro/git), ao versionar nossos projetos, nós os associamos a repositórios remotos (_remotes_). Por padrão, adicionamos um *remote* chamado **origem**.
 
     Um Flex container é criado ao usar a propriedade `display` de um elemento com o valor `flex`:
 
@@ -46,17 +46,17 @@ defmodule HugoToEExConverterTest do
 
     ---
 
-    <%= figure(%{src: "/course/module/images/css_flexbox_axes.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Axes", width: "600px", height: "auto", alt: "CSS Flexbox axes description"}) %>
+    <%= figure(%{src: "/module/images/css_flexbox_axes.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Axes", width: "600px", height: "auto", alt: "CSS Flexbox axes description"}) %>
 
-    [Turma 3 - Início jan/2020](/course/module/subject/sd-cohort-3)
+    [Turma 3 - Início jan/2020](sd-cohort-3)
 
     [Turma 5 - Início jan/2020](#sd-cohort-5)
 
     #### Flex Lines
 
-    <%= figure(%{src: "/course/module/subject/images/css_flexbox_single_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Single Line", width: "600px", height: "auto"}) %>
+    <%= figure(%{src: "/module/subject/images/css_flexbox_single_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Single Line", width: "600px", height: "auto"}) %>
 
-    <%= figure(%{src: "/course/module/subject/module/images/css_flexbox_multi_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Multi Line", width: "600px", height: "auto"}) %>
+    <%= figure(%{src: "/module/subject/module/images/css_flexbox_multi_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Multi Line", width: "600px", height: "auto"}) %>
 
     Agora vamos ver a estrutura e propriedades do Flexbox.
 

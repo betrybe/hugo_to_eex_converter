@@ -3,7 +3,7 @@ defmodule HugoToEExConverter.ImagesTest do
 
   alias HugoToEExConverter.Images
 
-  @img_path "test/support/converted/course/module/subject/trybe.svg"
+  @img_path "test/support/converted/content/module/subject/trybe.svg"
 
   setup do
     on_exit(fn -> File.rm!(@img_path) end)

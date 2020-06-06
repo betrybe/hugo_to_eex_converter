@@ -22,6 +22,6 @@ defmodule HugoToEExConverter.Images do
   end
 
   defp set_new_img_path(img_path) do
-    [img_path, String.replace(img_path, "/convert/content/", "/converted/course/")]
+    [img_path, String.replace(img_path, "/convert/", "/converted/")]
   end
 end

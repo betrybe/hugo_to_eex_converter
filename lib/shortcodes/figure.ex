@@ -24,7 +24,7 @@ defmodule HugoToEExConverter.Shortcodes.Figure do
   defp handle_src(params, file_path, src) do
     path = file_path |> resolve_src_path(src)
 
-    String.replace(params, ~r/(src: ".+?")/, "src: \"/course#{path}\"")
+    String.replace(params, ~r/(src: ".+?")/, "src: \"#{path}\"")
   end
 
   defp resolve_src_path(file_path, src) do
@@ -32,7 +32,7 @@ defmodule HugoToEExConverter.Shortcodes.Figure do
     |> Path.dirname()
     |> Path.join(src)
     |> Path.expand()
-    |> String.split("/course")
+    |> String.split("/content")
     |> List.last()
   end
 end
