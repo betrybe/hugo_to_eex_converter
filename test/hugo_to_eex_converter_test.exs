@@ -26,6 +26,7 @@ defmodule HugoToEExConverterTest do
     weight: 35
     week: 6
     day: 3
+    course: true
     ---\
     """
   end
