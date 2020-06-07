@@ -16,7 +16,7 @@ defmodule HugoToEExConverter.FileTest do
 
   @file_content
   """
-  <%= figure(%{src: "//module/images/css_flexbox_axes.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Axes", width: "600px", height: "auto", alt: "CSS Flexbox axes description"}) %>
+  <%= figure(%{src: "/module/images/css_flexbox_axes.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Axes", width: "600px", height: "auto", alt: "CSS Flexbox axes description"}) %>
 
   [Turma 3 - Início jan/2020](/content/module/subject/sd-cohort-3)
 
