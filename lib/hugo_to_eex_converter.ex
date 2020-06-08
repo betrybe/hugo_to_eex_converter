@@ -38,7 +38,7 @@ defmodule HugoToEExConverter do
 
   defp set_new_file_path(file_path) do
     file_path
-    |> String.replace("/convert/", "/converted/")
+    |> String.replace("/convert/", "/converted/priv/markdown_templates/")
     |> String.split(~r/.md$/)
     |> List.first()
   end
