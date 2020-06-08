@@ -2,8 +2,8 @@ defmodule HugoToEExConverterTest do
   use ExUnit.Case, async: true
 
   @converted_dir "test/support/converted"
-  @eex_markdown_file_path "test/support/converted/content/module/subject/content.html.md"
-  @frontmatter_file_path "test/support/converted/content/module/subject/content.yaml"
+  @eex_markdown_file_path "test/support/converted/priv/markdown_templates/content/module/subject/content.html.md"
+  @frontmatter_file_path "test/support/converted/priv/markdown_templates/content/module/subject/content.yaml"
 
   setup do
     on_exit(fn -> File.rm_rf(@converted_dir) end)
