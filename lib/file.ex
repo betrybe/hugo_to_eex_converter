@@ -29,6 +29,6 @@ defmodule HugoToEExConverter.File do
       |> String.split("---")
       |> List.to_string()
 
-    ~s(---#{content}course: true\n---)
+    "---#{content}course: true\n---"
   end
 end
