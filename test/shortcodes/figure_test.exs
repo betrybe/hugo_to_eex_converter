@@ -3,7 +3,7 @@ defmodule HugoToEExConverter.Shortcodes.FigureTest do
 
   alias HugoToEExConverter.Shortcodes
 
-  @file_path "tmp/content/course/front-end/react/_index.md"
+  @file_path "tmp/content/front-end/react/_index.md"
 
   describe "convert/2" do
     test "converts to a figure eex tag and set image to relative to `/course` folder path" do
@@ -22,10 +22,10 @@ defmodule HugoToEExConverter.Shortcodes.FigureTest do
   end
 
   defp expected_content(:one) do
-    ~S|<%= figure(%{src: "/course/front-end/react/images/main_screen.png", caption: "Tela principal do Slack", class: "standard-screenshot",}) %>|
+    ~S|<%= figure(%{src: "/front-end/react/images/main_screen.png", caption: "Tela principal do Slack", class: "standard-screenshot",}) %>|
   end
 
   defp expected_content(:two) do
-    ~S|<%= figure(%{src: "/course/front-end/images/pr-description.png", caption: "Cabeçalho do Pull Request (PR)", class: "cr-screen",}) %>|
+    ~S|<%= figure(%{src: "/front-end/images/pr-description.png", caption: "Cabeçalho do Pull Request (PR)", class: "cr-screen",}) %>|
   end
 end

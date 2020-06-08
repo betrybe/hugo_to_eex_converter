@@ -16,8 +16,8 @@ defmodule HugoToEExConverter do
 
     content = do_convert(new_file_path, content)
 
-    create_file(new_file_path, ".yaml", info)
-    create_file(new_file_path, ".html.md", content)
+    HugoToEExConverter.File.write(info, new_file_path, ".yaml")
+    HugoToEExConverter.File.write(content, new_file_path, ".html.md")
   end
 
   defp do_convert("", _), do: ""
@@ -38,23 +38,8 @@ defmodule HugoToEExConverter do
 
   defp set_new_file_path(file_path) do
     file_path
-    |> String.replace("/convert/content/", "/converted/course/")
+    |> String.replace("/convert/", "/converted/")
     |> String.split(~r/.md$/)
     |> List.first()
-  end
-
-  defp create_file(_, ".yaml", ""), do: nil
-
-  defp create_file(file_path, extension, content) do
-    file_path = file_path <> extension
-    file_path_dir = Path.dirname(file_path)
-
-    with :ok <- File.mkdir_p(file_path_dir),
-         :ok <- File.write(file_path, content) do
-      IO.puts("Created file #{file_path}")
-    else
-      {:error, reason} ->
-        IO.puts("Error creating file: #{file_path}. Reason: #{reason}")
-    end
   end
 end
