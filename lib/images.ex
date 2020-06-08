@@ -2,7 +2,7 @@ defmodule HugoToEExConverter.Images do
   @source System.get_env("INPUT_STORAGEPATH")
 
   def copy(source \\ @source) do
-    "#{source}/content/**/*.{png,jpeg,jpg,gif,svg}"
+    "#{source}/**/*.{png,jpeg,jpg,gif,svg}"
     |> Path.wildcard()
     |> Stream.map(&set_new_img_path/1)
     |> Enum.each(&do_copy/1)
@@ -22,6 +22,11 @@ defmodule HugoToEExConverter.Images do
   end
 
   defp set_new_img_path(img_path) do
-    [img_path, String.replace(img_path, "/convert/", "/converted/")]
+    new_img_path =
+      img_path
+      |> String.replace("/convert/content/", "/converted/assets/static/")
+      |> String.replace("/convert/static/", "/converted/assets/static/")
+
+    [img_path, new_img_path]
   end
 end
