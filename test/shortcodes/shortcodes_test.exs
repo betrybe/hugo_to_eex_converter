@@ -83,7 +83,7 @@ defmodule HugoToEExConverter.ShortcodesTest do
     ```
     {: .line-numbers}
 
-    [Turma 3 - Início jan/2020](sd-cohort-3)
+    [Turma 3 - Início jan/2020](/module/subject/sd-cohort-3)
 
     [Turma 5 - Início jan/2020](#sd-cohort-5)
 

@@ -49,7 +49,7 @@ defmodule HugoToEExConverterTest do
 
     <%= figure(%{src: "/module/images/css_flexbox_axes.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Axes", width: "600px", height: "auto", alt: "CSS Flexbox axes description"}) %>
 
-    [Turma 3 - Início jan/2020](sd-cohort-3)
+    [Turma 3 - Início jan/2020](/module/subject/sd-cohort-3)
 
     [Turma 5 - Início jan/2020](#sd-cohort-5)
 
