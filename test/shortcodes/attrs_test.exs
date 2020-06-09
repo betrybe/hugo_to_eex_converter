@@ -10,7 +10,7 @@ defmodule HugoToEExConverter.Shortcodes.AttrsTest do
 
       {{< yt id="7JRB33f_M3k" >}}
 
-      {{< figure src="images/client-server.png" class="text-center rounded mx-auto d-block" width="788px" height="auto" caption="Arquitetura cliente-servidor" >}}
+      {{< figure src="images/client-server.png" caption="" class="text-center rounded mx-auto d-block" width="788px" height="auto" >}}
       """
 
       assert Shortcodes.Attrs.convert(file_content) ==
@@ -19,7 +19,7 @@ defmodule HugoToEExConverter.Shortcodes.AttrsTest do
 
                {{< yt id: "7JRB33f_M3k", >}}
 
-               {{< figure src: "images/client-server.png", class: "text-center rounded mx-auto d-block", width: "788px", height: "auto", caption: "Arquitetura cliente-servidor", >}}
+               {{< figure src: "images/client-server.png", caption: "", class: "text-center rounded mx-auto d-block", width: "788px", height: "auto", >}}
                """
     end
   end
