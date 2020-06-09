@@ -1,5 +1,5 @@
 defmodule HugoToEExConverter.Shortcodes.Figure do
-  alias HugoToEExConverter.Shortcodes
+  alias HugoToEExConverter.{Shortcodes, Utils}
 
   def convert(params, file_path) do
     src = extract_src(params)
@@ -22,17 +22,8 @@ defmodule HugoToEExConverter.Shortcodes.Figure do
   defp handle_src(params, _file_path, "http" <> _path), do: params
 
   defp handle_src(params, file_path, src) do
-    path = file_path |> resolve_src_path(src)
+    path = Utils.Path.relative_to(src, file_path)
 
     String.replace(params, ~r/(src: ".+?")/, "src: \"#{path}\"")
-  end
-
-  defp resolve_src_path(file_path, src) do
-    file_path
-    |> Path.dirname()
-    |> Path.join(src)
-    |> Path.expand()
-    |> String.split("/content")
-    |> List.last()
   end
 end

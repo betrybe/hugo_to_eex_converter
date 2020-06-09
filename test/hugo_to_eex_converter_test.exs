@@ -57,7 +57,7 @@ defmodule HugoToEExConverterTest do
 
     <%= figure(%{src: "/module/subject/images/css_flexbox_single_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Single Line", width: "600px", height: "auto"}) %>
 
-    <%= figure(%{src: "/module/subject/module/images/css_flexbox_multi_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Multi Line", width: "600px", height: "auto"}) %>
+    <%= figure(%{src: "/module/images/css_flexbox_multi_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Multi Line", width: "600px", height: "auto"}) %>
 
     Agora vamos ver a estrutura e propriedades do Flexbox.
 

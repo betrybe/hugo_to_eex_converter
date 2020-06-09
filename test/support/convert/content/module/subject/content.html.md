@@ -12,7 +12,7 @@ Um Flex container é criado ao usar a propriedade `display` de um elemento com o
 
 ---
 
-<%= figure(%{src: "//module/images/css_flexbox_axes.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Axes", width: "600px", height: "auto", alt: "CSS Flexbox axes description"}) %>
+<%= figure(%{src: "/module/images/css_flexbox_axes.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Axes", width: "600px", height: "auto", alt: "CSS Flexbox axes description"}) %>
 
 [Turma 3 - Início jan/2020](/content/module/subject/sd-cohort-3)
 
@@ -20,9 +20,9 @@ Um Flex container é criado ao usar a propriedade `display` de um elemento com o
 
 #### Flex Lines
 
-<%= figure(%{src: "//module/subject/images/css_flexbox_single_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Single Line", width: "600px", height: "auto"}) %>
+<%= figure(%{src: "/module/subject/images/css_flexbox_single_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Single Line", width: "600px", height: "auto"}) %>
 
-<%= figure(%{src: "//module/subject/module/images/css_flexbox_multi_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Multi Line", width: "600px", height: "auto"}) %>
+<%= figure(%{src: "/module/subject/module/images/css_flexbox_multi_line.png", class: "rounded mx-auto d-block", caption: "CSS Flexbox Multi Line", width: "600px", height: "auto"}) %>
 
 Agora vamos ver a estrutura e propriedades do Flexbox.
 

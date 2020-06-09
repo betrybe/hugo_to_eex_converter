@@ -13,9 +13,16 @@ defmodule HugoToEExConverter.Shortcodes.FigureTest do
       assert Shortcodes.Figure.convert(params, @file_path) == expected_content(:one)
     end
 
-    test "converts to a figure eex tag and set image path to parent folder" do
+    test "converts to a figure eex tag and expand image path relative to current folder" do
       params =
         ~S|src="../images/pr-description.png" caption="Cabeçalho do Pull Request (PR)" class="cr-screen"|
+
+      assert Shortcodes.Figure.convert(params, @file_path) == expected_content(:two)
+    end
+
+    test "converts to a figure eex tag and set image path relative to content folder" do
+      params =
+        ~S|src="/front-end/images/pr-description.png" caption="Cabeçalho do Pull Request (PR)" class="cr-screen"|
 
       assert Shortcodes.Figure.convert(params, @file_path) == expected_content(:two)
     end
