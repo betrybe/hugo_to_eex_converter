@@ -10,10 +10,18 @@ defmodule HugoToEExConverter.Shortcodes.Extlink do
   end
 
   defp do_convert(_match, "href", g2, _g3, g4) do
-    "[#{g4}](#{g2}) {: .external-link target=\"_blank\" rel=\"noreferrer noopener\" }"
+    text = escape_double_quotes(g4)
+
+    "[#{text}](#{g2}) {: .external-link target=\"_blank\" rel=\"noreferrer noopener\" }"
   end
 
   defp do_convert(_match, "text", g2, _g3, g4) do
-    "[#{g2}](#{g4}) {: .external-link target=\"_blank\" rel=\"noreferrer noopener\" }"
+    text = escape_double_quotes(g2)
+
+    "[#{text}](#{g4}) {: .external-link target=\"_blank\" rel=\"noreferrer noopener\" }"
+  end
+
+  defp escape_double_quotes(str) do
+    String.replace(str, ~S{\"}, "\"")
   end
 end
