@@ -1,4 +1,4 @@
-defmodule HugoToEExConverter.FileTest do
+defmodule HugoToEExConverter.Utils.FileTest do
   use ExUnit.Case, async: true
 
   @file_path "test/support/converted/content/css-flex-box/content"

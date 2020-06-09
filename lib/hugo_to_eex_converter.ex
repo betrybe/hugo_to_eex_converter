@@ -1,5 +1,5 @@
 defmodule HugoToEExConverter do
-  alias HugoToEExConverter.{Markdown, Shortcodes}
+  alias HugoToEExConverter.{Markdown, Shortcodes, Utils}
 
   @source System.get_env("INPUT_STORAGEPATH")
 
@@ -16,8 +16,8 @@ defmodule HugoToEExConverter do
 
     content = do_convert(new_file_path, content)
 
-    HugoToEExConverter.File.write(info, new_file_path, ".yaml")
-    HugoToEExConverter.File.write(content, new_file_path, ".html.md")
+    Utils.File.write(info, new_file_path, ".yaml")
+    Utils.File.write(content, new_file_path, ".html.md")
   end
 
   defp do_convert("", _), do: ""

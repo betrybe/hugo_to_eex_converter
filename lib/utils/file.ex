@@ -1,4 +1,4 @@
-defmodule HugoToEExConverter.File do
+defmodule HugoToEExConverter.Utils.File do
   def write("", _, ".yaml"), do: nil
 
   def write(content, file_path, ".yaml" = extension) do
