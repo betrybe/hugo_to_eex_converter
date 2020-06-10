@@ -1,6 +1,8 @@
 defmodule HugoToEExConverter.Utils.FileTest do
   use ExUnit.Case, async: true
 
+  alias HugoToEExConverter.Utils
+
   @file_path "test/support/converted/content/css-flex-box/content"
 
   @yaml_content
@@ -32,13 +34,13 @@ defmodule HugoToEExConverter.Utils.FileTest do
 
   describe "write/3" do
     test "creates an yaml file and append a flag into its content" do
-      HugoToEExConverter.File.write(yaml_file_content, @file_path, ".yaml")
+      Utils.File.write(yaml_file_content, @file_path, ".yaml")
 
       assert File.read!("#{@file_path}.yaml") == expected_yaml_file_content()
     end
 
     test "creates an html.md file" do
-      HugoToEExConverter.File.write(yaml_file_content, @file_path, ".html.md")
+      Utils.File.write(yaml_file_content, @file_path, ".html.md")
 
       assert File.read!("#{@file_path}.html.md") == @file_content
     end
