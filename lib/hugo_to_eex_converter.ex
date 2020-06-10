@@ -4,6 +4,8 @@ defmodule HugoToEExConverter do
   @source System.get_env("INPUT_STORAGEPATH")
 
   def convert(source \\ @source) do
+    Utils.File.create_converted_folder!(source)
+
     "#{source}/content/**/*.md"
     |> Path.wildcard()
     |> Enum.map(fn f -> Task.async(fn -> do_convert(f) end) end)

@@ -29,7 +29,16 @@ defmodule HugoToEExConverter.Utils.FileTest do
     on_exit(fn ->
       File.rm!("#{@file_path}.yaml")
       File.rm!("#{@file_path}.html.md")
+      File.rm_dir!("test/support/converted")
     end)
+  end
+
+  describe "create_converted_folder!/1" do
+    test "creates the folder /converted" do
+      Utils.File.create_converted_folder!("test/support/convert")
+
+      assert File.exists?("test/support/converted")
+    end
   end
 
   describe "write/3" do
