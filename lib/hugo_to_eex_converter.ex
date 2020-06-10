@@ -4,7 +4,7 @@ defmodule HugoToEExConverter do
   @source System.get_env("INPUT_STORAGEPATH")
 
   def convert(source \\ @source) do
-    File.mkdir_p!(source)
+    Utils.File.create_converted_folder!(source)
 
     "#{source}/content/**/*.md"
     |> Path.wildcard()
