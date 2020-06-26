@@ -13,7 +13,7 @@ defmodule HugoToEExConverter.Shortcodes.FigureTest do
       assert Shortcodes.Figure.convert(params, @file_path) == expected_content(:one)
     end
 
-    test "converts to a figure eex tag and expand image path relative to current folder" do
+    test "converts to a figure eex tag and keeps image path relative to current folder" do
       params =
         ~S|src="../images/pr-description.png" caption="Cabeçalho do Pull Request (PR)" class="cr-screen"|
 
@@ -22,7 +22,7 @@ defmodule HugoToEExConverter.Shortcodes.FigureTest do
 
     test "converts to a figure eex tag and set image path relative to content folder" do
       params =
-        ~S|src="/front-end/images/pr-description.png" caption="Cabeçalho do Pull Request (PR)" class="cr-screen"|
+        ~S|src="/front-end/react/images/pr-description.png" caption="Cabeçalho do Pull Request (PR)" class="cr-screen"|
 
       assert Shortcodes.Figure.convert(params, @file_path) == expected_content(:two)
     end
@@ -33,6 +33,6 @@ defmodule HugoToEExConverter.Shortcodes.FigureTest do
   end
 
   defp expected_content(:two) do
-    ~S|<%= figure(%{src: "/front-end/images/pr-description.png", caption: "Cabeçalho do Pull Request (PR)", class: "cr-screen",}) %>|
+    ~S|<%= figure(%{src: "/front-end/react/images/pr-description.png", caption: "Cabeçalho do Pull Request (PR)", class: "cr-screen",}) %>|
   end
 end
