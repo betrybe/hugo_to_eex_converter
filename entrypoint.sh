@@ -3,4 +3,4 @@
 set -x
 cd /app
 mix hugo_to_eex.convert
-mix hugo_to_eex.copy_images
+mix hugo_to_eex.copy_assets
