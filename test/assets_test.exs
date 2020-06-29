@@ -9,6 +9,7 @@ defmodule HugoToEExConverter.AssetsTest do
   @pdf_file_path "test/support/converted/assets/static/module/file.pdf"
   @sql_file_path "test/support/converted/assets/static/module/file.sql"
   @zip_file_path "test/support/converted/assets/static/module/folder.zip"
+  @txt_file_path "test/support/converted/assets/static/module/file.txt"
 
   setup do
     on_exit(fn ->
@@ -18,6 +19,7 @@ defmodule HugoToEExConverter.AssetsTest do
       File.rm!(@pdf_file_path)
       File.rm!(@sql_file_path)
       File.rm!(@zip_file_path)
+      File.rm!(@txt_file_path)
     end)
   end
 
@@ -31,6 +33,7 @@ defmodule HugoToEExConverter.AssetsTest do
       assert File.exists?(@pdf_file_path)
       assert File.exists?(@sql_file_path)
       assert File.exists?(@zip_file_path)
+      assert File.exists?(@txt_file_path)
     end
   end
 end

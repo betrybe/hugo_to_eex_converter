@@ -2,7 +2,7 @@ defmodule HugoToEExConverter.Assets do
   @source System.get_env("INPUT_STORAGEPATH")
 
   def copy(source \\ @source) do
-    "#{source}/**/*.{png,jpeg,jpg,gif,svg,pdf,sql,zip,json,js}"
+    "#{source}/**/*.{png,jpeg,jpg,gif,svg,pdf,sql,zip,json,js,txt}"
     |> Path.wildcard()
     |> Stream.map(&set_new_file_path/1)
     |> Enum.each(&do_copy/1)
