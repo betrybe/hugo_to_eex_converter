@@ -8,7 +8,7 @@ A Hugo (Go) to EEx (Elixir) converter
 
 In the repo root path, run:
 
-`$ mix hugo_to_eex.converter`
+`$ mix hugo_to_eex.convert`
 
 This command will get `*.md` files inside `~/tmp/convert` folder by default, convert
 them and store inside `~/tmp/converted`
