@@ -35,7 +35,7 @@ defmodule HugoToEExConverterTest do
     ~S"""
     <%= figure(%{src: "https:\/\/media.giphy.com/media/MTdHOLBVYpVOLY4gRN/giphy.gif", caption: "O que o banco pensa quando você diz \`JOIN\`", class: "text-center rounded mx-auto d-block", width: "588px", height: "auto"}) %>
 
-    Recapitulando o que aprendemos no módulo sobre [git](/intro/git), ao versionar nossos projetos, nós os associamos a repositórios remotos (_remotes_). Por padrão, adicionamos um *remote* chamado **origem**.
+    Recapitulando o que aprendemos no módulo sobre [git](/intro/git), ao versionar nossos projetos, nós os associamos a repositórios remotos (_remotes_). Por padrão, adicionamos um _remote_ chamado **origem**.
 
     Um Flex container é criado ao usar a propriedade `display` de um elemento com o valor `flex`:
 
@@ -97,7 +97,7 @@ defmodule HugoToEExConverterTest do
 
     ### Agora, a prática
 
-    Para os exercícios a seguir, utilize este [playground](https://the-echoplex.net/flexyboxes/) {: .external-link target="_blank" rel="noreferrer noopener" } para testar como as propriedades **Flexbox** influenciam a disposição dos elementos em um *container*. Existem outros *playgrounds* para **Flexbox** como este, e os links para eles estão nos **Recursos adicionais**.
+    Para os exercícios a seguir, utilize este [playground](https://the-echoplex.net/flexyboxes/) {: .external-link target="_blank" rel="noreferrer noopener" } para testar como as propriedades **Flexbox** influenciam a disposição dos elementos em um _container_. Existem outros _playgrounds_ para **Flexbox** como este, e os links para eles estão nos **Recursos adicionais**.
 
     Como os exercícios serão feitos na própria plataforma, crie um diretório em seu repositório para o site número 1 (problema do sapo) e outra para o site número 2 (problema das torres).
     Salve o ***CSS*** que você criar na plataforma colocando o número do exercício como nome do arquivo, veja exemplos abaixo:
@@ -110,6 +110,19 @@ defmodule HugoToEExConverterTest do
 
     1. Faça os exercícios de **1** a **13** neste [site](https://flexboxfroggy.com/) {: .external-link target="_blank" rel="noreferrer noopener" }. O seu objetivo é colocar os sapos em cima de suas respectivas folhas.
     2. Neste segundo [link](http://www.flexboxdefense.com/) {: .external-link target="_blank" rel="noreferrer noopener" }, complete os exercícios de **1** a **9**. Seu objetivo aqui é posicionar as torres de defesa para que elas abatam os inimigos. Você terá de pensar qual é a melhor posição para cada torre.
+
+    ---
+
+    ### Um código em Python!
+
+    ```language-python
+    import sys
+
+
+    if __name__ == "__main__":
+        for argument in sys.argv:
+            print("Received -> ", argument)
+    ```
 
     ---
 

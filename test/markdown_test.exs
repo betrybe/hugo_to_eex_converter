@@ -16,14 +16,6 @@ defmodule HugoToEExConverter.MarkdownTest do
                """
     end
 
-    test "replace italic underscore sintax to asterisc" do
-      content =
-        "Confira o _número_ de documentos retornados pelo _pipeline_."
-        |> Markdown.convert()
-
-      assert content == "Confira o *número* de documentos retornados pelo *pipeline*."
-    end
-
     test "escape backslashs in url params" do
       content =
         ~S|<%= figure(%{src: "https://media.giphy.com/media/giphy.gif"}) %>|
@@ -66,6 +58,33 @@ defmodule HugoToEExConverter.MarkdownTest do
                {{< /highlight >}}
 
                ..com a diferença que agora existem as tags `<%%`, `<%%=` e `%>`.
+               """
+    end
+
+    test "does not escape python code" do
+      content =
+        """
+        {{< highlight python >}}
+        import sys
+
+
+        if __name__ == "__main__":
+            for argument in sys.argv:
+                print("Received -> ", argument)
+        {{< /highlight >}}
+        """
+        |> Markdown.convert()
+
+      assert content ==
+               """
+               {{< highlight python >}}
+               import sys
+
+
+               if __name__ == "__main__":
+                   for argument in sys.argv:
+                       print("Received -> ", argument)
+               {{< /highlight >}}
                """
     end
   end
