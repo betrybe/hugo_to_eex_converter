@@ -86,6 +86,19 @@ Salve o ***CSS*** que você criar na plataforma colocando o número do exercíci
 
 ---
 
+### Um código em Python!
+
+{{< highlight python >}}
+import sys
+
+
+if __name__ == "__main__":
+    for argument in sys.argv:
+        print("Received -> ", argument)
+{{< /highlight >}}
+
+---
+
 ## Recursos adicionais (opcional)
 
 * {{< extlink text="W3Schools CSS Flexbox" href="https://www.w3schools.com/css/css3_flexbox.asp" >}}
