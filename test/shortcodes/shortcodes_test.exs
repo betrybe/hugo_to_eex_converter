@@ -56,6 +56,8 @@ defmodule HugoToEExConverter.ShortcodesTest do
     Mineirin de Itararé
 
     {{< /who-am-i >}}
+
+    {{< rubber-duck >}}
     """
   end
 
@@ -106,6 +108,8 @@ defmodule HugoToEExConverter.ShortcodesTest do
     Mineirin de Itararé
 
     <% end %>
+
+    <%= rubber_duck(@conn) %>
     """
   end
 end
