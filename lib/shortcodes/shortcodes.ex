@@ -9,7 +9,7 @@ defmodule HugoToEExConverter.Shortcodes do
     "next-btn" => "next_button",
     "who-am-i" => "whoami",
     "figure" => "figure",
-    "versioning-your-code" => "versioning_your_code"
+    "versioning-your-code" => "versioning_your_code",
     "rubber-duck" => "rubber_duck"
   }
 
