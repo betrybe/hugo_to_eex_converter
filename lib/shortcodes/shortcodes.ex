@@ -10,6 +10,7 @@ defmodule HugoToEExConverter.Shortcodes do
     "who-am-i" => "whoami",
     "figure" => "figure",
     "versioning-your-code" => "versioning_your_code"
+    "rubber-duck" => "rubber_duck"
   }
 
   def shortcodes, do: @shortcodes

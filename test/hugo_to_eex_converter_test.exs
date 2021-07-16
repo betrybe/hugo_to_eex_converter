@@ -141,6 +141,10 @@ defmodule HugoToEExConverterTest do
     <%= versioning_your_code(@conn) %>
 
     <%= next_button(@conn) %>
+
+    ---
+
+    <%= rubber_duck(@conn) %>
     """
   end
 end
