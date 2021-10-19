@@ -25,15 +25,15 @@ defmodule HugoToEExConverter.MarkdownTest do
     end
 
     test "does not escape backslashs in url when its inside a hightlight" do
-      text_content = ~S|
+      content =
+        ~S|
                toot link aqui: "https://pamonha.giphy.com/media/pamonha.gif"
                ```react
                ignora link aqui: "https://cdn.pixabay.com/photo/2017/01/31/13/05/cameo-2023867_640.png"
                ```
                doot link aqui: "https://paodequeijo.giphy.com/media/paodequeijo.gif"
                |
-
-      content = Markdown.convert(text_content)
+        |> Markdown.convert()
 
       assert content ==
                ~S|
