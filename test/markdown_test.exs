@@ -24,6 +24,27 @@ defmodule HugoToEExConverter.MarkdownTest do
       assert content == ~S|<%= figure(%{src: "https:\/\/media.giphy.com/media/giphy.gif"}) %>|
     end
 
+    test "does not escape backslashs in url when its inside a hightlight" do
+      content =
+        ~S|
+               toot link aqui: "https://pamonha.giphy.com/media/pamonha.gif"
+               ```react
+               ignora link aqui: "https://cdn.pixabay.com/photo/2017/01/31/13/05/cameo-2023867_640.png"
+               ```
+               doot link aqui: "https://paodequeijo.giphy.com/media/paodequeijo.gif"
+               |
+        |> Markdown.convert()
+
+      assert content ==
+               ~S|
+               toot link aqui: "https:\/\/pamonha.giphy.com/media/pamonha.gif"
+               ```react
+               ignora link aqui: "https://cdn.pixabay.com/photo/2017/01/31/13/05/cameo-2023867_640.png"
+               ```
+               doot link aqui: "https:\/\/paodequeijo.giphy.com/media/paodequeijo.gif"
+               |
+    end
+
     test "escape eex-like tags between backticks" do
       content =
         ~S|...com a diferença que agora existem as tags `<%`, `<%=` e `%>`.|

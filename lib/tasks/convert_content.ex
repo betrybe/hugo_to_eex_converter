@@ -13,7 +13,7 @@ defmodule Mix.Tasks.HugoToEex.Convert do
     You can also pass as argument the source path where the files are
 
     ```
-    mix hugo_to_eex.copy_images --source tmp/convert
+    mix hugo_to_eex.convert --source tmp/convert
     ```
   """
   def run([]), do: HugoToEExConverter.convert()
